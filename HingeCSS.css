@@ -9,6 +9,14 @@ header{
     font-size: clamp(1.5rem, 1.5vw, 1.5rem);
     text-align: center;
     font-family: "Ibarra Real Nova", serif;
+    padding-block-end: 0;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    font-family: "Ibarra Real Nova", serif
+    
 }
 
 #menu{
@@ -42,7 +50,7 @@ header{
 }
 
 #menu-background-pattern {
-    height: 150vh;
+    height: 120vh;
     width: 100vw;
 
     background-image: radial-gradient(
