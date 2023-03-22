@@ -1,3 +1,58 @@
+
+.title-word {
+    animation: color-animation 4s linear infinite;
+  }
+  
+  .word1 {
+    --color-1: #fabe9e;
+    --color-2: #3D8DAE;
+    --color-3: #E4A9A8;
+  }
+  
+  .word2 {
+    --color-1: rgb(250, 244, 220);
+    --color-2: #ACCFCB;
+    --color-3: #17494D;
+  }
+  
+  .word3 {
+    --color-1: #556bd8;
+    --color-2: #E4A9A8;
+    --color-3: #ACCFCB;
+  }
+  
+  .word4 {
+    --color-1: #3D8DAE;
+    --color-2: rgb(250, 244, 220);
+    --color-3: #E4A9A8;
+  }
+  
+  @keyframes color-animation {
+    0%    {color: var(--color-1)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-2)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+  }
+  
+  
+  .container {
+    display: grid;
+    place-items: center;  
+    text-align: center;
+    
+  }
+  
+  .title {
+    font-family: "Ibarra Real Nova", serif;
+    font-weight: 20;
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+
+
 body{
     background-color:rgba(173, 84, 130, 0.738) ;
     margin: 0px;
@@ -8,11 +63,7 @@ body{
     
 }
 
-h1 {
-    color: rgb(250, 244, 220);
-    font-size: 50px;
 
-}
 
 p {
 
