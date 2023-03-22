@@ -104,14 +104,3 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
 )
 
 
-//if (item == "block") {
-   // percentage(stats.blocks/stats.interactions)
-//};
-//if (item == "like") {
-  //  percentage(stats.likes/stats.interactions)
-//};
-//if (item == "match") {
-//    percentage(stats.matches/stats.interactions)
-//};
-
-//console.log(percentage(stats.blocks/stats.interactions));

@@ -14,8 +14,5 @@ window.onload = function() {
 }
 const menu = document.getElementById("menu");
 
-
-
-
 console.log(Array.from(document.getElementsByClassName("menu-item")).length);
 
