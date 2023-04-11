@@ -37,7 +37,14 @@
     100%  {color: var(--color-1)}
   }
   
-  
+  .title {
+    font-family: "Ibarra Real Nova", serif;
+    font-weight: 20;
+    font-size: 50px;
+    padding-block: 15px;
+    text-transform: uppercase;
+  }
+
   .container {
     display: grid;
     place-items: center;  
@@ -45,16 +52,11 @@
     
   }
   
-  .title {
-    font-family: "Ibarra Real Nova", serif;
-    font-weight: 20;
-    font-size: 50px;
-    text-transform: uppercase;
-  }
+ 
 
 
 body{
-    background-color:rgba(173, 84, 130, 0.738) ;
+    background-color: #B287A3 ;
     margin: 0px;
     font-size: 30px;
     color: rgb(250, 244, 220);
@@ -75,9 +77,37 @@ p {
     color:black;
 }
 
+.chart-container {
+  width: 1000px;
+  height:600px;
+  position: absolute;
+}
+
+#generateChartButton{
+  border: none;
+  padding: 15px 32px;
+  color: #482728;
+  background-color: #C0F8D1;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  width: 80%;
+  border-radius: 8px;
+  transition-duration: 0.4s
+
+
+}
+
+#generateChartButton:hover {
+  background-color: #BDCFB5; 
+  color: white;
+  
+}
+
 #HingeInteraction {
 
-    color: rgb(250, 244, 220);
+    color: #C0F8D1;
     font-size: 35px;
     text-align: center;
     font-family: "Ibarra Real Nova", serif;
