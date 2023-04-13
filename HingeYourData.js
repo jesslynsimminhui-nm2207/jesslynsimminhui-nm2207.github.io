@@ -116,14 +116,15 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/1matches.json").then
         }
 
         var newradarStats = {
-            rizz: (radarStats.rizz.yes/radarStats.rizz.no)*10,
-            friendly: (radarStats.friendly.yes/radarStats.friendly.no)*10,
-            forgiving: (radarStats.forgiving.yes/radarStats.forgiving.no)*10,
-            attraction: (radarStats.attraction.yes/radarStats.attraction.no)*10,
-            value: (radarStats.value.yes/sideStats.interactions)*10
+            rizz: Math.min((radarStats.rizz.yes/radarStats.rizz.no)*10,10),
+            friendly: Math.min((radarStats.friendly.yes/radarStats.friendly.no)*10,10),
+            forgiving: Math.min((radarStats.forgiving.yes/radarStats.forgiving.no)*10,10),
+            attraction: Math.min((radarStats.attraction.yes/radarStats.attraction.no)*10,10),
+            value: Math.min((radarStats.value.yes/sideStats.interactions)*10,10)
+        
         }
         
-
+        
 // EVENT LISTENER
         //Get all element
         var RizzpercentageBar = document.getElementById("RizzpercentageBar");
@@ -232,6 +233,8 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/1matches.json").then
             console.log(value);
             radarArray.push(value);
         }
+        
+
         const radardataObj = {
             labels: radarHeaders,
             datasets: [{
@@ -324,6 +327,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/1matches.json").then
                 options: {
 
                     scale:{
+                        
                         display:true,
 
                             ticks: {

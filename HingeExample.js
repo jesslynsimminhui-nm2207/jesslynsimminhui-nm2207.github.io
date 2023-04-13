@@ -1,9 +1,13 @@
 
-//PART 1: Overall Data
+//PART 1: Fetching the matches.json file which shows a length of likes, blocks and chats 
 var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
     (prom) => (prom.json())
 ).then(
     function (json) {
+
+//RIGHT COLOUMN STATISTICS
+
+    //Creating the variables to count the likes, blocks and matches 
         var stats = {
             //interactions: 0, //size of json object
             likes: 0,
@@ -11,12 +15,12 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
             matches: 0,
         }
 
-        //Separate Interactions because don't want it in the Chart 
+    //Creating the variables to count the chats and overall interaction
         var sideStats = { 
             interactions: 0,
             chats: 0, 
                 }
-
+    //Creating the made-up variables for the rizz personality 
         var radarStats = {
             rizz: {
                 yes: 0,
@@ -44,12 +48,14 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         }
         sideStats.interactions = json.length;
 
-        //Separate Chats because don't want it in the Chart
+       
        
 
 
-        //ALL BACKEND AND MATH WORKS ------------------------------------------------------------
-        //Overall Chart Absolute Data
+//ALL BACKEND AND MATH WORKS ------------------------------------------------------------
+        
+        //Running through the whole data sheet, identifying each UNIQUE persons, 
+        //create a checklist of whether they liked/matched/blocked/chatted
         for (var i = 0; i < json.length; i++) {
 
             var person = json[i];
@@ -59,7 +65,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 "blocked":false,
                 "chatted":false,
             };
-
+        //Counting the UNIQUE persons who liked/blocked/matched for 2 sets of variables (stat and boy)
             for (const item in person) {
                 // console.log(item);
                 if (item == "block") {
@@ -79,6 +85,8 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                     boy.chats = true;
                 }
             }
+
+        //Creating the conditions for the Rizz data and counting accordingly
 
             // Assess Rizz: whether person got game
             if (boy.liked && boy.matched && boy.chats) {
@@ -115,17 +123,19 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
             }
         }
 
+        //Creating the variables for Radar Chart to be on a scale of 10 and capped at 10
         var newradarStats = {
-            rizz: (radarStats.rizz.yes/radarStats.rizz.no)*10,
-            friendly: (radarStats.friendly.yes/radarStats.friendly.no)*10,
-            forgiving: (radarStats.forgiving.yes/radarStats.forgiving.no)*10,
-            attraction: (radarStats.attraction.yes/radarStats.attraction.no)*10,
-            value: (radarStats.value.yes/sideStats.interactions)*10
+            rizz: Math.min((radarStats.rizz.yes/radarStats.rizz.no)*10,10),
+            friendly: Math.min((radarStats.friendly.yes/radarStats.friendly.no)*10,10),
+            forgiving: Math.min((radarStats.forgiving.yes/radarStats.forgiving.no)*10,10),
+            attraction: Math.min((radarStats.attraction.yes/radarStats.attraction.no)*10,10),
+            value: Math.min((radarStats.value.yes/sideStats.interactions)*10,10)
+        
         }
         
 
-// EVENT LISTENER
-        //Get all element
+//LEFT COLOUMN: Raw RIzz Data to reflect absolute number from above conditions
+        //Get all element by ID
         var RizzpercentageBar = document.getElementById("RizzpercentageBar");
         var FriendlypercentageBar = document.getElementById("FriendlypercentageBar");
         var ForgivingpercentageBar = document.getElementById("ForgivingpercentageBar");
@@ -133,43 +143,38 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         var ValuepercentageBar = document.getElementById("ValuepercentageBar");
         var updateButton = document.getElementById("updateButton");
        
+        //Only when the button is clicked
         updateButton.addEventListener("click", function() {
-        // Update the width of the element based on a new percentage value
-        var RizznewPercentage = newradarStats.rizz*10; // Replace with your desired percentage value
+        
+        var RizznewPercentage = newradarStats.rizz*10; // Replace with new percentage value
         RizzpercentageBar.style.width = RizznewPercentage + "%";
-        RizzpercentageBar.innerHTML = RizznewPercentage + "%"; // Update the content as well
+        RizzpercentageBar.innerHTML = RizznewPercentage + "%"; // Update the content 
 
         
-
-        // Update the width of the element based on a new percentage value
-        var FriendlynewPercentage = newradarStats.friendly*10; // Replace with your desired percentage value
+        var FriendlynewPercentage = newradarStats.friendly*10; 
         FriendlypercentageBar.style.width = FriendlynewPercentage + "%";
-        FriendlypercentageBar.innerHTML = FriendlynewPercentage + "%"; // Update the content as well
-
+        FriendlypercentageBar.innerHTML = FriendlynewPercentage + "%"; 
+    
         
-
-        // Update the width of the element based on a new percentage value
-        var ForgivingnewPercentage = newradarStats.forgiving*10; // Replace with your desired percentage value
+        var ForgivingnewPercentage = newradarStats.forgiving*10; 
         ForgivingpercentageBar.style.width = ForgivingnewPercentage + "%";
-        ForgivingpercentageBar.innerHTML = ForgivingnewPercentage + "%"; // Update the content as well
+        ForgivingpercentageBar.innerHTML = ForgivingnewPercentage + "%"; 
 
-        
 
-        // Update the width of the element based on a new percentage value
-        var AttractionnewPercentage = newradarStats.attraction*10; // Replace with your desired percentage value
+        var AttractionnewPercentage = newradarStats.attraction*10; 
         AttractionpercentageBar.style.width = AttractionnewPercentage + "%";
-        AttractionpercentageBar.innerHTML = AttractionnewPercentage + "%"; // Update the content as well
+        AttractionpercentageBar.innerHTML = AttractionnewPercentage + "%"; 
 
-        
-
-        // Update the width of the element based on a new percentage value
-        var ValuenewPercentage = newradarStats.value*10; // Replace with your desired percentage value
+     
+        var ValuenewPercentage = newradarStats.value*10; 
         ValuepercentageBar.style.width = ValuenewPercentage + "%";
-        ValuepercentageBar.innerHTML = ValuenewPercentage + "%"; // Update the content as well
+        ValuepercentageBar.innerHTML = ValuenewPercentage + "%"; 
 
     });
 
-        // ALL THE DIFFERENT CHARTS BELOW ---------------------------------------------------------
+// ALL THE DIFFERENT CHARTS BELOW ---------------------------------------------------------
+        
+
         //FORMATING THE OVERALL TABLE 
         var dataHeaders = [];
         var dataArray = [];
@@ -250,12 +255,10 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         
         
         
-        //ALL THE VISIBLE DATA POINTS HERE ---------------------------------------------------
+//ALL THE VISIBLE DATA POINTS HERE ---------------------------------------------------
 
-        //HingeInteraction
-        //document.getElementById("HingeInteraction").innerHTML = "You've interacted with " + sideStats.interactions + " people";
 
-        //First Chart
+        //Overall Chart
         new Chart("overallchart",
             {
                 type: 'doughnut',
@@ -284,7 +287,8 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 }
             }
         )
-
+        
+        //Percentage Chart
         new Chart("percchart",
             {
                 type: 'pie',
@@ -315,6 +319,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
             }
         )
         
+        //Radar Chart 
         document.getElementById('generateChartButton').addEventListener
         ('click', function()
             {new Chart("radarchart",

@@ -55,9 +55,10 @@ p {
 
     background-image: radial-gradient(
         rgba(219, 199, 212, 0.8) 6%,
-        transparent 4%
-    );
-
+        transparent 15% 
+    ); 
+   
+    
     background-position: 0% 0%;
     background-size: 12vmin 12vmin;
 
@@ -66,30 +67,38 @@ p {
     top: 0px;
     z-index: 1;
 
-    transition: opacity 600ms ease,
+    transition: opacity 800ms ease,
     background-size 800ms ease;
-
+    background-position: 800ms ease;
+ 
 
 }
+
+
+#menu-background-pattern{
+    height: 100%;
+    width: 100%;
+    background-image: url('Hinge.jpeg');
+
+    background-position: center 40%;
+    background-size: 110vmax;
+    opacity: 0.35;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+
+    transition: opacity 800ms ease,
+    background-size 800ms ease;
+    background-position: 800ms ease;
+
+}
+    
+
 
 #menu-items:hover~ #menu-background-pattern {
-    background-size: 11vmin 11vmin;
-    opacity: 0.5;
+    opacity: 0.10;
 }
 
-#menu[data-active-index="0"] > #menu-background-pattern {
-    background-position: 0% -25%;
-}
-
-#menu[data-active-index="1"] > #menu-background-pattern {
-    background-position: 0% -55%;
-}
-
-#menu[data-active-index="2"] > #menu-background-pattern {
-    background-position: 0% -75%;
-}
-
-#menu[data-active-index="3"] > #menu-background-pattern {
-    background-position: 0% -100%;
-}
 
