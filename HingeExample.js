@@ -124,12 +124,50 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         }
         
 
-    
-         //console.log("So far: ");
-        console.log(radarStats);
-        console.log(sideStats);
+// EVENT LISTENER
+        //Get all element
+        var RizzpercentageBar = document.getElementById("RizzpercentageBar");
+        var FriendlypercentageBar = document.getElementById("FriendlypercentageBar");
+        var ForgivingpercentageBar = document.getElementById("ForgivingpercentageBar");
+        var AttractionpercentageBar = document.getElementById("AttractionpercentageBar");
+        var ValuepercentageBar = document.getElementById("ValuepercentageBar");
+        var updateButton = document.getElementById("updateButton");
+       
+        updateButton.addEventListener("click", function() {
+        // Update the width of the element based on a new percentage value
+        var RizznewPercentage = newradarStats.rizz*10; // Replace with your desired percentage value
+        RizzpercentageBar.style.width = RizznewPercentage + "%";
+        RizzpercentageBar.innerHTML = RizznewPercentage + "%"; // Update the content as well
 
+        
 
+        // Update the width of the element based on a new percentage value
+        var FriendlynewPercentage = newradarStats.friendly*10; // Replace with your desired percentage value
+        FriendlypercentageBar.style.width = FriendlynewPercentage + "%";
+        FriendlypercentageBar.innerHTML = FriendlynewPercentage + "%"; // Update the content as well
+
+        
+
+        // Update the width of the element based on a new percentage value
+        var ForgivingnewPercentage = newradarStats.forgiving*10; // Replace with your desired percentage value
+        ForgivingpercentageBar.style.width = ForgivingnewPercentage + "%";
+        ForgivingpercentageBar.innerHTML = ForgivingnewPercentage + "%"; // Update the content as well
+
+        
+
+        // Update the width of the element based on a new percentage value
+        var AttractionnewPercentage = newradarStats.attraction*10; // Replace with your desired percentage value
+        AttractionpercentageBar.style.width = AttractionnewPercentage + "%";
+        AttractionpercentageBar.innerHTML = AttractionnewPercentage + "%"; // Update the content as well
+
+        
+
+        // Update the width of the element based on a new percentage value
+        var ValuenewPercentage = newradarStats.value*10; // Replace with your desired percentage value
+        ValuepercentageBar.style.width = ValuenewPercentage + "%";
+        ValuepercentageBar.innerHTML = ValuenewPercentage + "%"; // Update the content as well
+
+    });
 
         // ALL THE DIFFERENT CHARTS BELOW ---------------------------------------------------------
         //FORMATING THE OVERALL TABLE 
@@ -151,9 +189,9 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 label: "My Hinge",
                 data: dataArray,
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235, 0.8)',
-                    'rgb(255, 205, 86)'
+                    '#C0F8D1',
+                    '#800080',
+                    '#f2ba35'
                 ],
                 hoverOffset: 4
             }]
@@ -174,9 +212,9 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 label: "Perc Data",
                 data: percdataArray,
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235, 0.8)',
-                    'rgb(255, 205, 86)'
+                    '#C0F8D1',
+                    '#800080',
+                    '#f2ba35'
                 ],
                 hoverOffset: 4
             }]
@@ -200,12 +238,12 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 label: 'Radar Stats',
                 data: radarArray,
                 fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(192,248,209, 0.5)',
+                borderColor: 'rgb(250, 244, 220)',
                 pointBackgroundColor: 'rgb(255, 99, 132)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 99, 132)'
+                pointBorderColor: 'rgb(250, 244, 220)',
+                pointHoverBackgroundColor: 'rgb(250, 244, 220)',
+                pointHoverBorderColor: 'rgb(250, 244, 220)'
             }]
         };
         
@@ -215,7 +253,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         //ALL THE VISIBLE DATA POINTS HERE ---------------------------------------------------
 
         //HingeInteraction
-        document.getElementById("HingeInteraction").innerHTML = "You've interacted with " + sideStats.interactions + " people";
+        //document.getElementById("HingeInteraction").innerHTML = "You've interacted with " + sideStats.interactions + " people";
 
         //First Chart
         new Chart("overallchart",
@@ -230,15 +268,17 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                     title: {
                         display: true,
                         fontFamily: "Ibarra Real Nova",
-                        fontSize: 24,
-                        fontColor: 'rgb(250, 244, 220)',
+                        fontSize: 32,
+                        fontColor: 'grey',
                         text: ["In a Glance"],
                     },
                     legend: {
                         labels: {
-                            fontColor: 'rgb(250, 244, 220)',
+                            fontColor: 'grey',
+                        },
+                    layout: {
+                            padding: 30
                         }
-
                     }
 
                 }
@@ -257,16 +297,19 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                     title: {
                         display: true,
                         fontFamily: "Ibarra Real Nova",
-                        fontSize: 24,
-                        fontColor: 'rgb(250, 244, 220)',
+                        fontSize: 32,
+                        fontColor: 'grey',
                         text: ["Percentage Data"],
                     },
                     legend: {
                         labels: {
-                            fontColor: 'rgb(250, 244, 220)',
+                            fontColor: 'grey',
                         }
 
-                    }
+                    },
+                    layout: {
+                        padding: 30
+                    },
 
                 }
             }
@@ -284,39 +327,54 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                         display:true,
 
                             ticks: {
-                            min:0,
-                            max:10,
-                            stepSize:1,
-                            beginAtZero: true,
+                                min:0,
+                                max:10,
+                                stepSize:1,
+                                beginAtZero: true,
+                                fontColor:'grey',
+                                
                             },
 
 
                             labels: {
                                 fontSize: 18,
-                                fontColor: 'rgb(192, 75, 75)',
+                                fontColor: 'purple',
                                 fontStyle: 'bold', 
                                 fontFamily: 'Ibarra Real Nova' 
                             
                             },
+                        
+                            gridLines: {
+                                lineWidth: 2,
+                                color: 'grey',
+                            },
+
+                            pointLabels: {
+                                fontColor: 'purple',
+                                fontSize: 24,
+                              }
                     },
                 
                     title: {
                         display: true,
                         fontFamily: "Ibarra Real Nova",
-                        fontSize: 24,
-                        fontColor: 'rgb(250, 244, 220)',
+                        fontSize: 32,
+                        fontColor: 'purple',
                         text: ["Final Radar Data"],
                     },
                     elements: {
                         line:{
                             borderWidth: 3
                         }
-                    }
+                    },
+
+                   
+                     
                 }
             })},
         );
         
-        //document.getElementById("generateResult").addEventListener("click", );
+    
         
 
     }

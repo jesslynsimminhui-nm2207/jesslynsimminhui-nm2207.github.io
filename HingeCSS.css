@@ -5,7 +5,7 @@ body{
 }
 
 header{
-    color: white;
+    color: rgb(250, 244, 220);
     font-size: clamp(1.5rem, 1.5vw, 1.5rem);
     text-align: center;
     font-family: "Ibarra Real Nova", serif;
@@ -31,15 +31,15 @@ p {
     z-index: 2;
 }
 
-#menu-items hover > .menu-item {
-    opacity: 0.3;
+#menu-items:hover>.menu-item {
+    color: white;
 }
-#menu-items hover > .menu-item{
-    opacity: 1;
+#menu-items:hover>.menu-item{
+    color: white;
 }
 
 .menu-item{
-    color: white;
+    color: rgb(250, 244, 220);
     font-size: clamp(3rem, 8vw, 8rem);
     font-family: "Ibarra Real Nova", serif;
 
@@ -72,7 +72,7 @@ p {
 
 }
 
-#menu-items:hover ~ #menu-background-pattern {
+#menu-items:hover~ #menu-background-pattern {
     background-size: 11vmin 11vmin;
     opacity: 0.5;
 }
