@@ -1,0 +1,137 @@
+
+
+.custom-color {
+    background-color: #FAF4DC;
+  }
+  
+  .title {
+    font-family: "Ibarra Real Nova";
+    font-weight: 20;
+    font-size: 40px;
+    padding-block: 10px;
+    padding-bottom: 0%;
+    text-transform: uppercase;
+  }
+  
+        .title-word {
+            animation: color-animation 4s linear infinite;
+          }
+          
+          .word1 {
+            --color-1: #482728;
+            --color-2: #7E4E60;
+            --color-3: #C0F8D1;
+          }
+          
+          .word2 {
+            --color-1: #C0F8D1;
+            --color-2: #BDCFB5;
+            --color-3: #7E4E60;
+          }
+          
+          .word3 {
+            --color-1: #7E4E60;
+            --color-2: #482728;
+            --color-3: #C0F8D1;
+          }
+          
+          .word4 {
+            --color-1: #BDCFB5;
+            --color-2: #C0F8D1;
+            --color-3: #482728;
+          }
+          
+          @keyframes color-animation {
+            0%    {color: var(--color-1)}
+            32%   {color: var(--color-1)}
+            33%   {color: var(--color-2)}
+            65%   {color: var(--color-2)}
+            66%   {color: var(--color-3)}
+            99%   {color: var(--color-3)}
+            100%  {color: var(--color-1)}
+          }
+          
+        
+  
+  
+  
+  #generateChartButton{
+    border: none;
+    padding: 15px 32px;
+    color: #482728;
+    background-color: #C0F8D1;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    font-size: 25px;
+    width: 80%;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    
+  
+  
+  }
+  
+  #generateChartButton:hover {
+    background-color: #BDCFB5; 
+    color: white;
+    
+  }
+  
+  #updateButton {
+    border: none;
+    padding: 5px 5px;
+    color: #482728;
+    background-color: #C0F8D1;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    display: block; 
+    margin: 0 auto;
+    font-size: 18px;
+    width: 80%;
+    border-radius: 8px;
+    transition-duration: 0.4s
+    
+  }
+  
+  #updateButton:hover {
+    background-color: #BDCFB5; 
+    color: white;
+  }
+  
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: "Ibarra Real Nova";
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .styled-table thead tr {
+    background-color: #C0F8D1;
+    color: 'grey';
+    text-align: left;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+      padding: 12px 15px;
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  
