@@ -45,6 +45,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
             
             
         }
+        //Calculating overall interaction as json length 
         sideStats.interactions = json.length;
 
        
@@ -65,6 +66,8 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                 "chatted":false,
             };
         //Counting the UNIQUE persons who liked/blocked/matched for 2 sets of variables (stat and boy)
+        //Stats data for overall chart and percentage chart
+        //boy data for radar chart and rizz data
             for (const item in person) {
                 // console.log(item);
                 if (item == "block") {
@@ -142,32 +145,34 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         var ValuepercentageBar = document.getElementById("ValuepercentageBar");
         var updateButton = document.getElementById("updateButton");
        
-        //Only when the button is clicked
-        updateButton.addEventListener("click", function() {
+            //Only when the button is clicked
+            updateButton.addEventListener("click", function() {
+
+            // Replace with new percentage value
+            var RizznewPercentage = newradarStats.rizz*10; 
+            RizzpercentageBar.style.width = RizznewPercentage + "%";
+            // Update the content
+            RizzpercentageBar.innerHTML = RizznewPercentage + "%";  
+
+            //Repeat for all other variables
+            var FriendlynewPercentage = newradarStats.friendly*10; 
+            FriendlypercentageBar.style.width = FriendlynewPercentage + "%";
+            FriendlypercentageBar.innerHTML = FriendlynewPercentage + "%"; 
         
-        var RizznewPercentage = newradarStats.rizz*10; // Replace with new percentage value
-        RizzpercentageBar.style.width = RizznewPercentage + "%";
-        RizzpercentageBar.innerHTML = RizznewPercentage + "%"; // Update the content 
+            
+            var ForgivingnewPercentage = newradarStats.forgiving*10; 
+            ForgivingpercentageBar.style.width = ForgivingnewPercentage + "%";
+            ForgivingpercentageBar.innerHTML = ForgivingnewPercentage + "%"; 
+
+
+            var AttractionnewPercentage = newradarStats.attraction*10; 
+            AttractionpercentageBar.style.width = AttractionnewPercentage + "%";
+            AttractionpercentageBar.innerHTML = AttractionnewPercentage + "%"; 
 
         
-        var FriendlynewPercentage = newradarStats.friendly*10; 
-        FriendlypercentageBar.style.width = FriendlynewPercentage + "%";
-        FriendlypercentageBar.innerHTML = FriendlynewPercentage + "%"; 
-    
-        
-        var ForgivingnewPercentage = newradarStats.forgiving*10; 
-        ForgivingpercentageBar.style.width = ForgivingnewPercentage + "%";
-        ForgivingpercentageBar.innerHTML = ForgivingnewPercentage + "%"; 
-
-
-        var AttractionnewPercentage = newradarStats.attraction*10; 
-        AttractionpercentageBar.style.width = AttractionnewPercentage + "%";
-        AttractionpercentageBar.innerHTML = AttractionnewPercentage + "%"; 
-
-     
-        var ValuenewPercentage = newradarStats.value*10; 
-        ValuepercentageBar.style.width = ValuenewPercentage + "%";
-        ValuepercentageBar.innerHTML = ValuenewPercentage + "%"; 
+            var ValuenewPercentage = newradarStats.value*10; 
+            ValuepercentageBar.style.width = ValuenewPercentage + "%";
+            ValuepercentageBar.innerHTML = ValuenewPercentage + "%"; 
 
     });
 
@@ -178,6 +183,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
         var dataHeaders = [];
         var dataArray = [];
 
+        //Push keys and variable for all stats
         for (const key of Object.keys(stats)) {
             console.log(key);
             dataHeaders.push(key);

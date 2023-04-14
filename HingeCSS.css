@@ -19,6 +19,8 @@ p {
     
 }
 
+/* Make menu item to change colour when hover */
+
 #menu{
     height: 80vh;
     display: flex;
@@ -48,6 +50,7 @@ p {
     padding: clamp(0.25re, 0,5vw, 1rem) 0rem;
     transition: opacity 400ms ease;
 }
+/* Make background pattern and image  */
 
 #menu-background-pattern {
     height: 120vh;
@@ -95,7 +98,7 @@ p {
 
 }
     
-
+/* Make background pattern and image fade when hover */
 
 #menu-items:hover~ #menu-background-pattern {
     opacity: 0.10;
