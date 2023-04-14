@@ -364,7 +364,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/1matches.json").then
                         fontFamily: "Ibarra Real Nova",
                         fontSize: 32,
                         fontColor: 'purple',
-                        text: ["Final Radar Data"],
+                        text: ["Personalised Rizz Data"],
                     },
                     elements: {
                         line:{

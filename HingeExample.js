@@ -9,7 +9,6 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
 
     //Creating the variables to count the likes, blocks and matches 
         var stats = {
-            //interactions: 0, //size of json object
             likes: 0,
             blocks: 0,
             matches: 0,
@@ -365,7 +364,7 @@ var data = fetch("https://jesslynsimminhui-nm2207.github.io/matches.json").then(
                         fontFamily: "Ibarra Real Nova",
                         fontSize: 32,
                         fontColor: 'purple',
-                        text: ["Final Radar Data"],
+                        text: ["Personalised Rizz Data"],
                     },
                     elements: {
                         line:{
